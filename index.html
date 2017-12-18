@@ -6,15 +6,15 @@
 </head>
 <body>
 	<h1>top page</h1>
-	<a href="/page01.html">キャッシュを利用したページへ</a>
-	<a href="/page02.html">キャッシュを利用しないページへ</a>
+	<a href="/pwa/page01.html">キャッシュを利用したページへ</a>
+	<a href="/pwa/page02.html">キャッシュを利用しないページへ</a>
 
 <script>
 //ブラウザが Service Worker をサポートしているかどうかを確認
 if('serviceWorker' in navigator) {
 	navigator.serviceWorker
 		//サポートしている場合は、現在空のファイルsw.jsをService Workerとして登録
-		.register('/sw.js', {scope: '/'})
+		.register('/pwa/sw.js', {scope: '/pwa/'})
 		.then(function() { console.log("Service Worker Registered"); });
 }
 </script>

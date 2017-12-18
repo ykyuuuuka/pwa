@@ -1,14 +1,14 @@
 //Cache API はまだすべてのブラウザで完全にサポートされていないため、ポリフィルを使用する必要がある
-importScripts('/cache-polyfill.js');
+importScripts('/pwa/cache-polyfill.js');
 
 self.addEventListener('install', function(e) {
 	e.waitUntil(
 		caches.open('my-cache').then(function(cache) {
 			return cache.addAll([
-				'/index.html',
-				'/img/01.jpg',
-				'/img/02.jpg',
-				'/img/03.jpg'
+				'/pwa/index.html',
+				'/pwa/img/01.jpg',
+				'/pwa/img/02.jpg',
+				'/pwa/img/03.jpg'
 			]);
 		})
 	);
