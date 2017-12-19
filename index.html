@@ -16,7 +16,7 @@
 if('serviceWorker' in navigator) {
 	navigator.serviceWorker
 		//サポートしている場合は、現在空のファイルsw.jsをService Workerとして登録
-		.register('sw.js', {scope: '/'})
+		.register('sw.js', {scope: '/pwa/'})
 		.then(function() { console.log("Service Worker Registered"); });
 }
 </script>
