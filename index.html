@@ -7,15 +7,16 @@
 </head>
 <body>
 	<h1>top page</h1>
-	<a href="/pwa/page01.html">初回もキャッシュ利用したページへ</a>
-	<a href="/pwa/page02.html">初回はキャッシュ利用しないページへ</a>
+	<a href="page01.html">初回もキャッシュ利用したページへ</a>
+	<a href="page02.html">初回はキャッシュ利用しないページへ</a>
+	<a href="page03.html">初回はキャッシュ利用した動画ページへ</a>
 
 <script>
 //ブラウザが Service Worker をサポートしているかどうかを確認
 if('serviceWorker' in navigator) {
 	navigator.serviceWorker
 		//サポートしている場合は、現在空のファイルsw.jsをService Workerとして登録
-		.register('/pwa/sw.js', {scope: '/pwa/'})
+		.register('sw.js', {scope: '/'})
 		.then(function() { console.log("Service Worker Registered"); });
 }
 </script>
