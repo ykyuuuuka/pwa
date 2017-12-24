@@ -13,7 +13,11 @@ self.addEventListener('install', function(e) {
 				'img/image01.jpg',
 				'img/image02.jpg',
 				'img/image03.jpg',
-				'img/image04.jpg'
+				'img/image04.jpg',
+				'js/bootstrap.bundle.min.js',
+				'js/jquery.min.js',
+				'css/full-width-pics.css',
+				'css/bootstrap.min.css'
 			]);
 		})
 	);
