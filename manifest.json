@@ -1,8 +1,6 @@
 {
   "short_name": "test app",
   "name": "test app",
-  "theme_color": "#00385c",
-  "background_color": "#00385c",
   "icons": [{
       "src": "img/icon/96x96.png",
       "type": "image/png",
@@ -22,5 +20,7 @@
     }],
   "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "theme_color": "#00385c",
+  "background_color": "#00385c"
 }

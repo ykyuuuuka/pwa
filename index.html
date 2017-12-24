@@ -12,13 +12,23 @@
 	<a href="page03.html">初回はキャッシュ利用した動画ページへ</a><br>
 
 <script>
-//ブラウザが Service Worker をサポートしているかどうかを確認
-if('serviceWorker' in navigator) {
-	navigator.serviceWorker
-		//サポートしている場合は、現在空のファイルsw.jsをService Workerとして登録
-		.register('sw.js', {scope: '/pwa/'})
-		.then(function() { console.log("Service Worker Registered"); });
-}
+// //ブラウザが Service Worker をサポートしているかどうかを確認
+// if('serviceWorker' in navigator) {
+// 	navigator.serviceWorker
+// 		//サポートしている場合は、現在空のファイルsw.jsをService Workerとして登録
+// 		.register('sw.js', {scope: '/pwa/'})
+// 		.then(function() { console.log("Service Worker Registered"); });
+// }
+window.addEventListener('load', function() {
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register("/sw.js")
+			.then(function(registration) {
+				console.log("serviceWorker registed.");
+			}).catch(function(error) {
+				console.warn("serviceWorker error.", error);
+			});
+	}
+});
 </script>
 </body>
 </html>
