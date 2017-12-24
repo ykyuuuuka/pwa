@@ -6,14 +6,12 @@ self.addEventListener('install', function(e) {
 		caches.open('my-cache').then(function(cache) {
 			return cache.addAll([
 				'index.html',
-				'index2.html',
-				'index4.html',
+				'page01.html',
+				'page03.html',
 				'img/video.mp4',
-				'img/video.jpg',
-				'img/image01.jpg',
-				'img/image02.jpg',
-				'img/image03.jpg',
-				'img/image04.jpg'
+				'img/01.jpg',
+				'img/02.jpg',
+				'img/03.jpg'
 			]);
 		})
 	);

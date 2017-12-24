@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+	<link rel="manifest" href="manifest.json">
+	<title>Document</title>
+</head>
+<body>
+	<h1>top page</h1>
+	<a href="page01.html">初回もキャッシュ利用したページへ</a><br>
+	<a href="page02.html">初回はキャッシュ利用しないページへ</a><br>
+	<a href="page03.html">初回はキャッシュ利用した動画ページへ</a><br>
+
+<script>
+window.addEventListener('load', function() {
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register("sw.js")
+			.then(function(registration) {
+				console.log("serviceWorker registed.");
+				return registration.update();
+			}).catch(function(error) {
+				console.warn("serviceWorker error.", error);
+			});
+	}
+});
+</script>
+</body>
+</html>

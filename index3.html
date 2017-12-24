@@ -14,21 +14,6 @@
 
 		<!-- Custom styles for this template -->
 		<link href="css/full-width-pics.css" rel="stylesheet">
-
-		<!-- swの登録 -->
-		<script>
-		window.addEventListener('load', function() {
-			if ('serviceWorker' in navigator) {
-				navigator.serviceWorker.register("sw.js")
-					.then(function(registration) {
-						console.log("serviceWorker registed.");
-						return registration.update();
-					}).catch(function(error) {
-						console.warn("serviceWorker error.", error);
-					});
-			}
-		});
-		</script>
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -40,16 +25,17 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a class="nav-link" href="index.html">Home
-								<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="index2.html">Use cache</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="index3.html">Not Use cache</a>
+						<li class="nav-item active">
+							<a class="nav-link" href="index3.html">Not Use cache
+								<span class="sr-only">(current)</span>
+							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="index4.html">Use cache</a>
@@ -62,10 +48,11 @@
 			</div>
 		</nav>
 
-		<!-- Header - set the background image for the header in the line below -->
-		<header class="py-5 bg-image-full" style="background-image: url('img/1080.jpeg');">
-			<img class="img-fluid d-block mx-auto" src="img/200×200.png" alt="">
-		</header>
+		<!-- Image Section - set the background image for the header in the line below -->
+		<section class="py-5 bg-image-full" style="background-image: url('img/image001.jpg');">
+			<!-- Put anything you want here! There is just a spacer below for demo purposes! -->
+			<div style="height: 200px;"></div>
+		</section>
 
 		<!-- Content section -->
 		<section class="py-5">
@@ -77,7 +64,37 @@
 		</section>
 
 		<!-- Image Section - set the background image for the header in the line below -->
-		<section class="py-5 bg-image-full" style="background-image: url('img/1080_2.jpeg');">
+		<section class="py-5 bg-image-full" style="background-image: url('img/image002.jpg');">
+			<!-- Put anything you want here! There is just a spacer below for demo purposes! -->
+			<div style="height: 200px;"></div>
+		</section>
+
+		<!-- Content section -->
+		<section class="py-5">
+			<div class="container">
+				<h1>Section Heading</h1>
+				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
+			</div>
+		</section>
+
+		<!-- Image Section - set the background image for the header in the line below -->
+		<section class="py-5 bg-image-full" style="background-image: url('img/image003.jpg');">
+			<!-- Put anything you want here! There is just a spacer below for demo purposes! -->
+			<div style="height: 200px;"></div>
+		</section>
+
+		<!-- Content section -->
+		<section class="py-5">
+			<div class="container">
+				<h1>Section Heading</h1>
+				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
+			</div>
+		</section>
+
+		<!-- Image Section - set the background image for the header in the line below -->
+		<section class="py-5 bg-image-full" style="background-image: url('img/image004.jpg');">
 			<!-- Put anything you want here! There is just a spacer below for demo purposes! -->
 			<div style="height: 200px;"></div>
 		</section>
