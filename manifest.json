@@ -25,5 +25,6 @@
   "orientation": "portrait",
   "theme_color": "#00385c",
   "background_color": "#00385c",
-  "gcm_sender_id": "AAAADnvJY28:APA91bE2JV_CXRyYNgOAavahFcx-DVSvMWJ7CQDwVUKTbdG9Ui-UYYzRjQxPsnijqLr0Vvd-Id1M4Yuosbo-CE8TwuSw7bz-5ZbysM19jmNGE-LIi7pqW2vWBpc-Ku1aZMd-TkBVh_ia"
+  "gcm_sender_id": "62206337903",
+  "gcm_user_visible_only": true
 }
