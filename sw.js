@@ -60,3 +60,13 @@ self.addEventListener('notificationclick', function (event) {
 	event.notification.close();
 	clients.openWindow("/");
 }, false);
+
+
+
+// self.addEventListener("push", function(event) {
+// 	event.waitUntil(
+// 		self.registration.showNotification("Push通知タイトル", {
+// 			body: "Push通知本文"
+// 		})
+// 	)
+// })
