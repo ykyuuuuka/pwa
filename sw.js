@@ -1,6 +1,8 @@
 //Cache API はまだすべてのブラウザで完全にサポートされていないため、ポリフィルを使用する必要がある
 importScripts('cache-polyfill.js');
 
+console.log('1回目の起動ならこの文言が表示されるはずです');
+
 // self.addEventListener('install', function(e) {
 // 	e.waitUntil(
 // 		caches.open('my-cache').then(function(cache) {
