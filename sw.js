@@ -6,6 +6,13 @@ const expectedCaches = ['static-v1'];
 
 self.addEventListener('install', function(event) {
 	console.log('V1 installing…');
+	event.waitUntil(
+		caches.open('my-cache').then(function(cache) {
+			return cache.addAll([
+				'/pwa/img/video.jpg'
+			]);
+		})
+	);
 });
 
 self.addEventListener('activate', function(event) {
