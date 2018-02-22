@@ -25,36 +25,50 @@
 
 		<!-- swの登録 -->
 		<script>
+		//Register Service Worker
+		// window.addEventListener('load', function() {
+		// 	if ('serviceWorker' in navigator) {
+		// 		navigator.serviceWorker.register("sw.js")
+		// 			.then(function(registration) {
+		// 				console.log("serviceWorker registed.");
+		// 				return registration.update();
+		// 			}).catch(function(error) {
+		// 				console.warn("serviceWorker error.", error);
+		// 			});
+		// 	}
+		// });
 		window.addEventListener('load', function() {
 			if ('serviceWorker' in navigator) {
-				navigator.serviceWorker.register("sw.js")
-					.then(function(registration) {
-						console.log("serviceWorker registed.");
-						return registration.update();
-					}).catch(function(error) {
-						console.warn("serviceWorker error.", error);
-					});
+				navigator.serviceWorker.register('/sw.js',{scope: "/inscope/"}).then(function(registration) {
+					// 登録成功
+					console.log('ServiceWorker registration successful with scope: ', registration.scope);
+					}).catch(function(err) {
+					// 登録失敗
+					console.log('ServiceWorker registration failed: ', err);
+				});
 			}
 		});
+
 		</script>
 
 		<script type="text/javascript">
-		if ('serviceWorker' in navigator) {
-				navigator.serviceWorker.register('sw.js');
+		//Push Function
+		// if ('serviceWorker' in navigator) {
+		// 		navigator.serviceWorker.register('sw.js');
 
-				navigator.serviceWorker.ready
-						.then(function (registration) {
-								return registration.pushManager.subscribe({ userVisibleOnly: true });
-						})
-						.then(function (subscription) {
-								console.log('GCM EndPoint is:' + subscription.endpoint);
-								var auth = subscription.getKey('auth') ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('auth')))) : '';
-								console.log('User Auth is:' + auth);
-								var publicKey = subscription.getKey('p256dh') ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('p256dh')))) : '';
-								console.log('User PublicKey is:' + publicKey);
-						})
-						.catch(console.error.bind(console));
-		}
+		// 		navigator.serviceWorker.ready
+		// 				.then(function (registration) {
+		// 						return registration.pushManager.subscribe({ userVisibleOnly: true });
+		// 				})
+		// 				.then(function (subscription) {
+		// 						console.log('GCM EndPoint is:' + subscription.endpoint);
+		// 						var auth = subscription.getKey('auth') ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('auth')))) : '';
+		// 						console.log('User Auth is:' + auth);
+		// 						var publicKey = subscription.getKey('p256dh') ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('p256dh')))) : '';
+		// 						console.log('User PublicKey is:' + publicKey);
+		// 				})
+		// 				.catch(console.error.bind(console));
+		// }
 		</script>
 	</head>
 	<body>
