@@ -1,7 +1,7 @@
-console.log('sw.jsのスクリプトが実行されていればこのメッセージが表示される');
+console.log('sw.jsのスクリプトが実行されていればこのメッセージが表示されるし、version一個飛ばしている');
 
 self.addEventListener('install', function(event) {
-	console.log('V3 installing…');
+	console.log('V33 installing…');
 
 	// skipWaiting() を使えば強制的にswを更新できる
 	event.waitUntil(self.skipWaiting());
@@ -9,7 +9,7 @@ self.addEventListener('install', function(event) {
 
 
 self.addEventListener('activate', function(event) {
-	console.log('V3 activating…');
+	console.log('V33 activating…');
 
 	// 強制的にclaim() を実行
 	event.waitUntil(self.clients.claim());
@@ -17,5 +17,5 @@ self.addEventListener('activate', function(event) {
 
 
 self.addEventListener('fetch', function(event) {
-	console.log('V3 fetching…');
+	console.log('V33 fetching…');
 });
