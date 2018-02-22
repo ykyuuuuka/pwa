@@ -13,14 +13,10 @@ self.addEventListener('install', function(event) {
 	event.waitUntil(
 		caches.open('static-v3').then(function(cache) {
 			return cache.addAll([
-				'/pwa/img/video.jpg'
+				'/pwa/img/image002.jpg'
 			]);
 		})
 	);
-});
-
-self.addEventListener('activate', function(event) {
-	console.log('V3 activating…');
 });
 
 // self.addEventListener('install', function(e) {
