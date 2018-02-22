@@ -2,12 +2,12 @@
 // importScripts('cache-polyfill.js');
 
 //たぶんキャッシュDBの名称定義
-const expectedCaches = ['static-v1'];
+const expectedCaches = ['static-v2'];
 
 self.addEventListener('install', function(event) {
 	console.log('V1 installing…');
 	event.waitUntil(
-		caches.open('my-cache').then(function(cache) {
+		caches.open('static-v2').then(function(cache) {
 			return cache.addAll([
 				'/pwa/img/video.jpg'
 			]);
