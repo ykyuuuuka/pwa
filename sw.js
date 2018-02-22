@@ -1,13 +1,21 @@
 console.log('sw.jsのスクリプトが実行されたはず');
 
 self.addEventListener('install', function(event) {
-	console.log('V1 installing…');
+	console.log('V2 installing…');
+
+	// skipWaiting() を使えば強制的にswを更新できる
+	event.waitUntil(self.skipWaiting());
 });
+
 
 self.addEventListener('activate', function(event) {
-	console.log('V1 activating…');
+	console.log('V2 activating…');
+
+	// 強制的にclaim() を実行
+	event.waitUntil(self.clients.claim());
 });
 
+
 self.addEventListener('fetch', function(event) {
-	console.log('V1 fetching…');
+	console.log('V2 fetching…');
 });
