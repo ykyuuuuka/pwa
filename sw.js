@@ -1,8 +1,8 @@
 //Cache API はまだすべてのブラウザで完全にサポートされていないため、ポリフィルを使用する必要がある
 importScripts('cache-polyfill.js');
 
-// console.log('1回目の起動ならこの文言が表示されるはずです');
-console.log('swがちゃんと更新されていればこの文言が表示されるはず');
+console.log('1回目の起動ならこの文言が表示されるはずです');
+// console.log('swがちゃんと更新されていればこの文言が表示されるはず');
 
 // self.addEventListener('install', function(e) {
 // 	e.waitUntil(
