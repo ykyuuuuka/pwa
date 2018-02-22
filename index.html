@@ -41,7 +41,7 @@
 			if ('serviceWorker' in navigator) {
 				navigator.serviceWorker.register('sw.js',{scope: "/pwa/"}).then(function(registration) {
 					//これを書かないとswが強制更新されない？
-					// registration.update();
+					registration.update();
 					// 登録成功
 					console.log('ServiceWorker registration successful with scope: ', registration.scope);
 					}).catch(function(err) {
@@ -109,7 +109,7 @@
 			<div class="container">
 				<h1>Service Workerが起動しています</h1>
 				<p class="lead">Service Worker Activated and running.</p>
-				<p>デスクトップ版chromeでご覧の場合、Devツールの「Application」からService Workerのアクティベート状況が確認できます。<br>v01</p>
+				<p>デスクトップ版chromeでご覧の場合、Devツールの「Application」からService Workerのアクティベート状況が確認できます。<br>v03</p>
 			</div>
 		</section>
 
