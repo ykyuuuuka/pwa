@@ -38,9 +38,9 @@
 		// 	}
 		// });
 		window.addEventListener('load', function() {
-			registration.update();
 			if ('serviceWorker' in navigator) {
 				navigator.serviceWorker.register('sw.js',{scope: "/pwa/"}).then(function(registration) {
+					registration.update();
 					// 登録成功
 					console.log('ServiceWorker registration successful with scope: ', registration.scope);
 					}).catch(function(err) {
