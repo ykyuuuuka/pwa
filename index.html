@@ -40,6 +40,7 @@
 		window.addEventListener('load', function() {
 			if ('serviceWorker' in navigator) {
 				navigator.serviceWorker.register('sw.js',{scope: "/pwa/"}).then(function(registration) {
+					//これを書かないとswが強制更新されない？
 					registration.update();
 					// 登録成功
 					console.log('ServiceWorker registration successful with scope: ', registration.scope);
