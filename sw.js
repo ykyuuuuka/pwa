@@ -2,21 +2,24 @@
 // importScripts('cache-polyfill.js');
 
 //たぶんキャッシュDBの名称定義
-const cachesName = 'static-v6';
+const cachesName = 'static-v7';
 
 self.addEventListener('install', function(event) {
-	console.log('V6 installing…');
-
+	console.log('V7 installing…');
 	// skipWaiting() を使えば強制的にswを更新できる
-	event.waitUntil(skipWaiting());
+	event.waitUntil(self.skipWaiting());
 
 	event.waitUntil(
 		caches.open(cachesName).then(function(cache) {
 			return cache.addAll([
-				'/pwa/img/image001.jpg'
+				'/pwa/img/image03.jpg'
 			]);
 		})
 	);
+});
+
+self.addEventListener('activate', function(event) {
+	event.waitUntil(self.clients.claim());
 });
 
 // self.addEventListener('install', function(e) {
