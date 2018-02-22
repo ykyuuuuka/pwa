@@ -4,6 +4,18 @@ importScripts('cache-polyfill.js');
 console.log('1回目の起動ならこの文言が表示されるはずです');
 // console.log('swがちゃんと更新されていればこの文言が表示されるはず');
 
+this.addEventListener('install', function(event) {
+	console.log('バージョン1のsw.jsにてinstallイベントが発火しています');
+	event.waitUntil(
+		caches.open('v1').then(function(cache) {
+			return cache.addAll([
+				'/pwa/css/bootstrap.min.css',
+				'/pwa/css/full-width-pics.css'
+			]);
+		});
+	);
+});
+
 // self.addEventListener('install', function(e) {
 // 	e.waitUntil(
 // 		caches.open('my-cache').then(function(cache) {
