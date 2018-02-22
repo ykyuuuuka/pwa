@@ -12,7 +12,7 @@ this.addEventListener('install', function(event) {
 				'/pwa/css/bootstrap.min.css',
 				'/pwa/css/full-width-pics.css'
 			]);
-		});
+		})
 	);
 });
 
