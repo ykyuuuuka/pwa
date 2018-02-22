@@ -5,7 +5,8 @@
 const expectedCaches = ['static-v2'];
 
 self.addEventListener('install', function(event) {
-	console.log('V1 installing…');
+	console.log('V2 installing…');
+	event.waitUntil(skipWaiting());
 	event.waitUntil(
 		caches.open('static-v2').then(function(cache) {
 			return cache.addAll([
@@ -16,7 +17,7 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('activate', function(event) {
-	console.log('V1 activating…');
+	console.log('V2 activating…');
 });
 
 // self.addEventListener('install', function(e) {
