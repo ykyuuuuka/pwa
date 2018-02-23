@@ -1,5 +1,5 @@
 //sw.jsのバージョン管理
-const VERSION = "02";
+const VERSION = "03";
 const STATIC_CACHE_KEY = 'version-' + VERSION;
 const CACHE_KEYS = [
 	STATIC_CACHE_KEY
@@ -8,13 +8,17 @@ const CACHE_KEYS = [
 
 //キャッシュ対象ファイル一覧
 const STATIC_FILES = [
-	'/img/1080.jpeg',
-	'/img/1080_2.jpeg'
+	'/img/video.jpg',
+	'/img/image004.jpg'
 ];
 
 self.addEventListener('install', function(event) {
 	console.log(STATIC_CACHE_KEY + ' installing…');
 
+	// skipWaiting() を使えば強制的にswを更新できる
+	event.waitUntil(self.skipWaiting());
+
+	//キャッシュを実施
 	event.waitUntil(
 		caches.open(STATIC_CACHE_KEY).then(cache => {
 			return Promise.all(
@@ -26,8 +30,6 @@ self.addEventListener('install', function(event) {
 			);
 		})
 	);
-	// skipWaiting() を使えば強制的にswを更新できる
-	event.waitUntil(self.skipWaiting());
 });
 
 
