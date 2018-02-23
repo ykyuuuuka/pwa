@@ -1,5 +1,5 @@
 //sw.jsのバージョン管理
-const VERSION = "03";
+const VERSION = "04";
 const STATIC_CACHE_KEY = 'version-' + VERSION;
 const CACHE_KEYS = [
 	STATIC_CACHE_KEY
