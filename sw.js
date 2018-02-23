@@ -8,8 +8,10 @@ const CACHE_KEYS = [
 
 //キャッシュ対象ファイル一覧
 const STATIC_FILES = [
-	'/img/video.jpg',
-	'/img/image004.jpg'
+	'/img/image01.jpg',
+	'/img/image02.jpg',
+	'/img/image03.jpg',
+	'/img/image04.jpg'
 ];
 
 self.addEventListener('install', function(event) {
