@@ -1,6 +1,9 @@
 //sw.jsのバージョン管理
-const VERSION = "01";
+const VERSION = "02";
 const STATIC_CACHE_KEY = 'version-' + VERSION;
+const CACHE_KEYS = [
+	STATIC_CACHE_KEY
+];
 
 
 //キャッシュ対象ファイル一覧
@@ -33,15 +36,21 @@ self.addEventListener('activate', function(event) {
 
 	// 強制的にclaim() を実行
 	event.waitUntil(self.clients.claim());
+
+	event.waitUntil(
+		caches.keys().then(keys => {
+			return Promise.all(
+				keys.filter(key => {
+					return !CACHE_KEYS.includes(key);
+				}).map(key => {
+					return caches.delete(key);
+				})
+			);
+		})
+	);
 });
 
 
 self.addEventListener('fetch', function(event) {
 	console.log(STATIC_CACHE_KEY + ' fetching…');
-
-	event.respondWith(
-		caches.match(event.request).then(response => {
-			return response || fetch(event.request);
-		})
-	);
 });
