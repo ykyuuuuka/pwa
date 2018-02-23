@@ -1,5 +1,5 @@
 //sw.jsのバージョン管理
-const VERSION = "05";
+const VERSION = "06";
 const STATIC_CACHE_KEY = 'version-' + VERSION;
 const CACHE_KEYS = [
 	STATIC_CACHE_KEY
@@ -60,11 +60,7 @@ self.addEventListener('fetch', function(event) {
 
 	event.respondWith(
 		caches.match(event.request).then(function(response) {
-				if (response) {
-					return response;
-				}
-					// return fetch(e.request);
-			}
-		)
+			return response || fetch(event.request);
+		})
 	);
 });
