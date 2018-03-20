@@ -1,17 +1,26 @@
 //sw.jsのバージョン管理
-const VERSION = "06";
+const VERSION = "10";
 const STATIC_CACHE_KEY = 'version-' + VERSION;
-const CACHE_KEYS = [
-	STATIC_CACHE_KEY
-];
+const CACHE_KEYS = [ STATIC_CACHE_KEY ];
 
 
 //キャッシュ対象ファイル一覧
 const STATIC_FILES = [
-	'/img/image01.jpg',
-	'/img/image02.jpg',
-	'/img/image03.jpg',
-	'/img/image04.jpg'
+	'/pwa/img/image01.jpg',
+	'/pwa/img/image02.jpg',
+	'/pwa/img/image03.jpg',
+	'/pwa/img/image04.jpg'
+];
+
+//アプリ関連ファイル一覧
+const STATIC_FILES = [
+	'/pwa/app/index.html',
+	'/pwa/app/css/bootstrap.min.css',
+	'/pwa/app/css/full-width-pics.css',
+	'/pwa/app/js/bootstrap.bundle.min.js',
+	'/pwa/app/js/jquery.min.js',
+	'/pwa/app/img/app_01.jpeg',
+	'/pwa/app/img/app_02.jpeg'
 ];
 
 self.addEventListener('install', function(event) {
