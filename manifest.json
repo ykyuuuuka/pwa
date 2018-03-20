@@ -1,6 +1,6 @@
 {
-  "short_name": "test app",
-  "name": "test app",
+  "short_name": "PWA DEMO",
+  "name": "PWA Demonstration",
   "icons": [
     {
       "src": "img/icon/96x96.png",
