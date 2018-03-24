@@ -36,56 +36,50 @@
 					// 登録失敗
 					console.log('ServiceWorker registration failed: ', err);
 				});
+
+				//Push通知
+				navigator.serviceWorker.ready
+						.then(function (registration) {
+								return registration.pushManager.subscribe({ userVisibleOnly: true });
+						})
+						.then(function (subscription) {
+								console.log('GCM EndPoint is:' + subscription.endpoint);
+								var auth = subscription.getKey('auth') ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('auth')))) : '';
+								console.log('User Auth is:' + auth);
+								var publicKey = subscription.getKey('p256dh') ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('p256dh')))) : '';
+								console.log('User PublicKey is:' + publicKey);
+						})
+						.catch(console.error.bind(console));
 			}
 		});
-		</script>
-
-		<script type="text/javascript">
-		//Push Function
-		// if ('serviceWorker' in navigator) {
-		// 		navigator.serviceWorker.register('sw.js');
-
-		// 		navigator.serviceWorker.ready
-		// 				.then(function (registration) {
-		// 						return registration.pushManager.subscribe({ userVisibleOnly: true });
-		// 				})
-		// 				.then(function (subscription) {
-		// 						console.log('GCM EndPoint is:' + subscription.endpoint);
-		// 						var auth = subscription.getKey('auth') ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('auth')))) : '';
-		// 						console.log('User Auth is:' + auth);
-		// 						var publicKey = subscription.getKey('p256dh') ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('p256dh')))) : '';
-		// 						console.log('User PublicKey is:' + publicKey);
-		// 				})
-		// 				.catch(console.error.bind(console));
-		// }
 		</script>
 	</head>
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
-				<a class="navbar-brand" href="index.html">PWA Demonstration</a>
+				<a class="navbar-brand" href="/pwa/">PWA Demonstration</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="index.html">Home
+							<a class="nav-link" href="/pwa/">Home
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="index2.html">Use cache</a>
+							<a class="nav-link" href="/pwa/cache/pictures.html">cache(images)</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="index3.html">Not Use cache</a>
+							<a class="nav-link" href="/pwa/no-cache/pictures.html">no-nache(images)</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="index4.html">Use cache</a>
+							<a class="nav-link" href="/pwa/cache/movie.html">cache(movie)</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="index5.html">Not Use cache</a>
+							<a class="nav-link" href="/pwa/no-cache/movie.html">no-cache(movie)</a>
 						</li>
 					</ul>
 				</div>
@@ -95,8 +89,8 @@
 		<!-- Content section -->
 		<section class="py-5">
 			<div class="container">
-				<h1>Service Workerが起動しています</h1>
-				<p>デスクトップ版chromeでご覧の場合、Chrome DevToolsのApplicationビューからService Workerのアクティベート状況が確認できます。<br>変数重複を解消</p>
+				<h1>ServiceWorkerが起動しています</h1>
+				<p>デスクトップ版chromeでご覧の場合、Chrome DevToolsのApplicationビューからService Workerのアクティベート状況が確認できます。<br><span>※ServiceWorkerのスコープは「/pwa/」としています。ServiceWorkerの登録処理は当ページでだけ行なっています。</span></p>
 			</div>
 		</section>
 
@@ -108,9 +102,15 @@
 		<!-- Content section -->
 		<section class="py-5">
 			<div class="container">
-				<h1>Section Heading</h1>
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
+				<h1>実装したこと</h1>
+				<p>このページでは、以下の内容に関する実装状況が確認できます。</p>
+				<ul>
+					<li>「Add to Homescreen」によるアプリインストールバナーの出現</li>
+					<li>「Add to Homescreen」によるアプリインストール</li>
+					<li>「Add to Homescreen」によるアプリのオフライン対応</li>
+					<li>「ServiceWorker」によるリソースのキャッシュ</li>
+					<li>「Web PushAPI」によるプッシュ通知</li>
+				</ul>
 			</div>
 		</section>
 
@@ -123,23 +123,23 @@
 		<!-- Content section -->
 		<section class="py-5">
 			<div class="container">
-				<h1>Section Heading</h1>
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
+				<h1>リソースキャッシュの確認</h1>
+				<p>ServiceWorkerに対応しているブラウザで、メニューの「キャッシュあり」と記されたリンクからページ遷移をしてください。</p>
+				<p>このページにランディングした時点でServiceWorkerのアクティーベートと同時にリソースファイルのキャッシュが完了しています。</p>
 			</div>
 		</section>
 
 		<!-- Footer -->
 		<footer class="py-5 bg-dark">
 			<div class="container">
-				<p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+				<p class="m-0 text-center text-white">Copyright &copy; PWA Demonstration 2018</p>
 			</div>
 			<!-- /.container -->
 		</footer>
 
 		<!-- Bootstrap core JavaScript -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="/pwa/js/jquery.min.js"></script>
+		<script src="/pwa/js/bootstrap.bundle.min.js"></script>
 
 		<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 		<script>

@@ -1,0 +1,30 @@
+{
+  "short_name": "PWA DEMO",
+  "name": "PWA Demonstration",
+  "icons": [
+    {
+      "src": "img/icon/96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    }, {
+      "src": "img/icon/144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }, {
+      "src": "img/icon/192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }, {
+      "src": "img/icon/512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/pwa/app/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#00385c",
+  "background_color": "#00385c",
+  "gcm_sender_id": "62206337903",
+  "gcm_user_visible_only": true
+}

@@ -6,10 +6,20 @@ const CACHE_KEYS = [ STATIC_CACHE_KEY ];
 
 //キャッシュ対象ファイル一覧
 const STATIC_FILES = [
-	'/pwa/img/image01.jpg',
-	'/pwa/img/image02.jpg',
-	'/pwa/img/image03.jpg',
-	'/pwa/img/image04.jpg'
+	'/pwa/img/cache/01.jpg',
+	'/pwa/img/cache/02.jpg',
+	'/pwa/img/cache/03.jpg',
+	'/pwa/img/cache/04.jpg',
+	'/pwa/img/cache/05.jpg',
+	'/pwa/img/cache/06.jpg',
+	'/pwa/img/cache/video.jpg',
+	'/pwa/img/cache/video.mp4',
+	'/pwa/cache/pictures.html',
+	'/pwa/cache/movie.html',
+	'/pwa/css/bootstrap.min.css',
+	'/pwa/css/full-width-pics.css',
+	'/pwa/js/bootstrap.bundle.min.js',
+	'/pwa/js/jquery.min.js',
 ];
 
 //アプリ関連ファイル一覧
@@ -42,7 +52,7 @@ self.addEventListener('install', function(event) {
 		})
 	);
 
-	//キャッシュを実施
+	//アプリに必要なリソースキャッシュを実行
 	event.waitUntil(
 		caches.open(STATIC_CACHE_KEY).then(cache => {
 			return Promise.all(
@@ -86,3 +96,38 @@ self.addEventListener('fetch', function(event) {
 		})
 	);
 });
+
+
+self.addEventListener('push', function (event) {
+		console.log('Received a push message', event);
+		var title = "プッシュ通知です！";
+		var body = "プッシュ通知はこのようにして送られるのです";
+
+		event.waitUntil(
+				self.registration.showNotification(title, {
+						body: body,
+						icon: 'http://free-images.gatag.net/images/201108090000.jpg',
+						tag: 'push-notification-tag'
+				})
+		);
+});
+self.addEventListener('notificationclick', function (event) {
+		event.notification.close();
+		clients.openWindow("/");
+}, false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
