@@ -1,5 +1,5 @@
 //sw.jsのバージョン管理
-const VERSION = "10";
+const VERSION = "01";
 const STATIC_CACHE_KEY = 'version-' + VERSION;
 const CACHE_KEYS = [ STATIC_CACHE_KEY ];
 
@@ -12,6 +12,12 @@ const STATIC_FILES = [
 	'/pwa/img/cache/04.jpg',
 	'/pwa/img/cache/05.jpg',
 	'/pwa/img/cache/06.jpg',
+	'/pwa/img/cache/07.jpg',
+	'/pwa/img/cache/08.jpg',
+	'/pwa/img/cache/09.jpg',
+	'/pwa/img/cache/10.jpg',
+	'/pwa/img/cache/11.jpg',
+	'/pwa/img/cache/12.jpg',
 	'/pwa/img/cache/video.jpg',
 	'/pwa/img/cache/video.mp4',
 	'/pwa/cache/pictures.html',
@@ -19,7 +25,7 @@ const STATIC_FILES = [
 	'/pwa/css/bootstrap.min.css',
 	'/pwa/css/full-width-pics.css',
 	'/pwa/js/bootstrap.bundle.min.js',
-	'/pwa/js/jquery.min.js',
+	'/pwa/js/jquery.min.js'
 ];
 
 //アプリ関連ファイル一覧
