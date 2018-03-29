@@ -3,10 +3,6 @@
   "name": "PWA Demonstration",
   "icons": [
     {
-      "src": "img/icon/96x96.png",
-      "type": "image/png",
-      "sizes": "96x96"
-    }, {
       "src": "img/icon/144x144.png",
       "type": "image/png",
       "sizes": "144x144"
@@ -23,8 +19,8 @@
   "start_url": "/pwa/app/",
   "display": "standalone",
   "orientation": "portrait",
-  "theme_color": "#00385c",
-  "background_color": "#00385c",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
   "gcm_sender_id": "62206337903",
   "gcm_user_visible_only": true
 }
