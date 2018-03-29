@@ -1,5 +1,5 @@
 //sw.jsのバージョン管理
-const VERSION = "9999";
+const VERSION = "##";
 const STATIC_CACHE_KEY = 'version-' + VERSION;
 const CACHE_KEYS = [ STATIC_CACHE_KEY ];
 
@@ -107,7 +107,7 @@ self.addEventListener('fetch', function(event) {
 self.addEventListener('push', function (event) {
 		console.log('Received a push message', event);
 		var title = "プッシュ通知です！";
-		var body = "プッシュ通知はこのようにして送られるのです";
+		var body = "テキストが入ります。";
 
 		event.waitUntil(
 				self.registration.showNotification(title, {
