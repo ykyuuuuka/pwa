@@ -30,13 +30,13 @@ const STATIC_FILES = [
 
 //アプリ関連ファイル一覧
 const APP_FILES = [
-	'/pwa/app/index.html',
-	'/pwa/app/css/bootstrap.min.css',
-	'/pwa/app/css/full-width-pics.css',
-	'/pwa/app/js/bootstrap.bundle.min.js',
-	'/pwa/app/js/jquery.min.js',
-	'/pwa/app/img/app_01.jpeg',
-	'/pwa/app/img/app_02.jpeg'
+	// '/pwa/app/index.html',
+	// '/pwa/app/css/bootstrap.min.css',
+	// '/pwa/app/css/full-width-pics.css',
+	// '/pwa/app/js/bootstrap.bundle.min.js',
+	// '/pwa/app/js/jquery.min.js',
+	// '/pwa/app/img/app_01.jpeg',
+	// '/pwa/app/img/app_02.jpeg'
 ];
 
 self.addEventListener('install', function(event) {
@@ -59,17 +59,17 @@ self.addEventListener('install', function(event) {
 	);
 
 	//アプリに必要なリソースキャッシュを実行
-	event.waitUntil(
-		caches.open(STATIC_CACHE_KEY).then(cache => {
-			return Promise.all(
-				APP_FILES.map(url => {
-					return fetch(new Request(url, { cache: 'no-cache', mode: 'no-cors' })).then(response => {
-						return cache.put(url, response);
-					});
-				})
-			);
-		})
-	);
+	// event.waitUntil(
+	// 	caches.open(STATIC_CACHE_KEY).then(cache => {
+	// 		return Promise.all(
+	// 			APP_FILES.map(url => {
+	// 				return fetch(new Request(url, { cache: 'no-cache', mode: 'no-cors' })).then(response => {
+	// 					return cache.put(url, response);
+	// 				});
+	// 			})
+	// 		);
+	// 	})
+	// );
 });
 
 
